@@ -32,16 +32,18 @@
         theme: {
           extend: {
             colors: {
-              teal: {
-                DEFAULT: "#7BC2CC",
-                dark: "#5DAFBB",
-                deep: "#3F8E9A",
-                soft: "#A8D6DC",
+              verde: {
+                DEFAULT: "#1B8F3A",
+                dark: "#146B2A",
+                soft: "#A6E3B5",
               },
-              sol: { DEFAULT: "#FFCB05", light: "#FFE066", dark: "#E5B600" },
-              crema: { DEFAULT: "#FAF7F2", dark: "#EEE7DA" },
-              carbon: { DEFAULT: "#1A1A1A", soft: "#2A2A2A", muted: "#4A4A4A" },
-              rojo: { DEFAULT: "#E63946", dark: "#C8102E" },
+              rojo: {
+                DEFAULT: "#E63946",
+                dark: "#B91C1C",
+                soft: "#F8B4B4",
+              },
+              blanco: "#FFFFFF",
+              carbon: "#1A1A1A",
             },
             fontFamily: {
               body: ["Inter", "system-ui", "sans-serif"],
@@ -55,14 +57,11 @@
 
     <style>
       :root {
-        --teal: #7bc2cc;
-        --teal-dark: #5dafbb;
-        --teal-deep: #3f8e9a;
-        --sol: #ffcb05;
-        --sol-light: #ffe066;
-        --crema: #faf7f2;
-        --carbon: #1a1a1a;
+        --verde: #1b8f3a;
+        --verde-dark: #146b2a;
         --rojo: #e63946;
+        --blanco: #ffffff;
+        --carbon: #1a1a1a;
       }
       * {
         -webkit-tap-highlight-color: transparent;
@@ -71,7 +70,7 @@
         scroll-behavior: smooth;
       }
       body {
-        background: var(--teal);
+        background: var(--blanco);
         color: var(--carbon);
         font-family: "Inter", system-ui, sans-serif;
         overflow-x: hidden;
@@ -88,7 +87,7 @@
       .word-rotator {
         display: inline-block;
         position: relative;
-        color: var(--sol);
+        color: yellow;
       }
       /* Underline dots beneath the rotating word */
       .word-dots {
@@ -254,7 +253,7 @@
       .carousel-dot.active {
         width: 24px;
         border-radius: 999px;
-        background: var(--sol);
+        background: var(--rojo);
       }
 
       /* =========================================================
@@ -306,8 +305,8 @@
         display: inline-flex;
         align-items: center;
         gap: 12px;
-        background: var(--sol);
-        color: var(--carbon);
+        background: var(--verde);
+        color: var(--blanco);
         font-family: "Anton", sans-serif;
         text-transform: uppercase;
         letter-spacing: 0.15em;
@@ -323,7 +322,7 @@
       }
       .cta-btn:hover {
         transform: translateY(-3px);
-        background: var(--sol-light);
+        background: var(--rojo);
         box-shadow: 0 16px 40px rgba(255, 203, 5, 0.45);
       }
       .cta-btn::before {
@@ -402,7 +401,7 @@
         bottom: -2px;
         width: 0;
         height: 2px;
-        background: var(--sol);
+        background: #e63946;
         transition: width 0.3s ease;
       }
       .nav-link:hover::after {
@@ -616,7 +615,7 @@
     <!-- ============ HERO ============ -->
     <section
       id="top"
-      class="relative min-h-[100svh] bg-teal flex flex-col overflow-hidden pt-24 sm:pt-28"
+      class="relative min-h-[100svh] bg-rojo flex flex-col overflow-hidden pt-24 sm:pt-28"
     >
       <!-- Decorative dots/blobs for visual texture -->
       <div class="absolute inset-0 pointer-events-none overflow-hidden">
@@ -692,7 +691,11 @@
           <div class="carousel-halo"></div>
           <div class="carousel-track" id="carouselTrack">
             <!-- 5 cards: center uses local pizza-slice.png; others Unsplash variants -->
-            <div class="carousel-card" data-name="MUZZARELLA">
+            <div
+              class="carousel-card"
+              data-name="MUZZARELLA"
+              data-ingredients="Salsa de tomate · Muzzarella · Orégano"
+            >
               <img
                 src="https://pub-21aab4376012441d8f25c8d67e5ae93b.r2.dev/pizzas/muzzarella.png"
                 alt="Muzzarella"
@@ -701,7 +704,11 @@
               />
             </div>
 
-            <div class="carousel-card" data-name="CALABRESA">
+            <div
+              class="carousel-card"
+              data-name="CALABRESA"
+              data-ingredients="Salsa de tomate · Muzzarella · Longaniza · Aceitunas"
+            >
               <img
                 src="https://pub-21aab4376012441d8f25c8d67e5ae93b.r2.dev/pizzas/pizza-slice.png"
                 alt="Calabresa"
@@ -710,7 +717,11 @@
               />
             </div>
 
-            <div class="carousel-card" data-name="FUGAZZETA">
+            <div
+              class="carousel-card"
+              data-name="FUGAZZETA"
+              data-ingredients="Cebolla · Muzzarella · Aceite de oliva"
+            >
               <img
                 src="https://pub-21aab4376012441d8f25c8d67e5ae93b.r2.dev/pizzas/fugazetta.png"
                 alt="Fugazzeta"
@@ -719,7 +730,11 @@
               />
             </div>
 
-            <div class="carousel-card" data-name="NAPOLITANA">
+            <div
+              class="carousel-card"
+              data-name="NAPOLITANA"
+              data-ingredients="Tomate · Muzzarella · Ajo · Orégano"
+            >
               <img
                 src="https://pub-21aab4376012441d8f25c8d67e5ae93b.r2.dev/pizzas/napolitana.png"
                 alt="Napolitana"
@@ -728,7 +743,11 @@
               />
             </div>
 
-            <div class="carousel-card" data-name="ROQUEFORT">
+            <div
+              class="carousel-card"
+              data-name="ROQUEFORT"
+              data-ingredients="Muzzarella · Roquefort · Crema"
+            >
               <img
                 src="https://pub-21aab4376012441d8f25c8d67e5ae93b.r2.dev/pizzas/roque.png"
                 alt="Roquefort"
@@ -806,7 +825,7 @@
     </section>
 
     <!-- ============ MENU ============ -->
-    <section id="menu" class="bg-crema py-20 sm:py-28 relative">
+    <section id="menu" class="bg-white py-20 sm:py-28 relative">
       <div class="max-w-6xl mx-auto px-6 sm:px-8">
         <div class="text-center mb-14 reveal" data-reveal>
           <div
@@ -885,7 +904,7 @@
     <!-- ============ CONTACTO ============ -->
     <section
       id="contacto"
-      class="bg-teal text-white relative overflow-hidden py-24 sm:py-32"
+      class="bg-verde text-white relative overflow-hidden py-24 sm:py-32"
     >
       <!-- Decorative dots -->
       <div class="absolute inset-0 pointer-events-none">
@@ -1085,9 +1104,9 @@
       const nav = document.getElementById("nav");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 40) {
-          nav.style.background = "rgba(63, 142, 154, 0.92)";
+          nav.style.background = "rgba(230, 57, 70, 0.92)"; // rojo
           nav.style.backdropFilter = "blur(14px)";
-          nav.style.boxShadow = "0 4px 24px rgba(0,0,0,0.10)";
+          nav.style.boxShadow = "0 4px 24px rgba(0,0,0,0.15)";
         } else {
           nav.style.background = "transparent";
           nav.style.backdropFilter = "none";
@@ -1185,10 +1204,12 @@
         // Update label + hero rotator to the card currently at center
         const visualCenter =
           ((Math.round(centerIdx - visualOffset) % total) + total) % total;
-        const name = carouselCards[visualCenter].dataset.name || "";
+        const card = carouselCards[visualCenter];
+        const name = card.dataset.name || "";
+        const ingredients = card.dataset.ingredients || "";
         if (name && name !== lastLabelName) {
           lastLabelName = name;
-          carouselLabel.textContent = name;
+          carouselLabel.textContent = ingredients;
           if (rotatorEl) {
             if (window.gsap) {
               gsap.to(rotatorEl, {
